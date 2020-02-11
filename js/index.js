@@ -1,7 +1,7 @@
 //nav -mouseenter
 document.querySelectorAll('.nav-link').forEach(el => {
     el.addEventListener('mouseenter', () => {
-        el.style.color = 'red';
+        el.style.color = 'blue';
         el.style.transform = 'scale(1.3)';
     });
 });
@@ -42,7 +42,7 @@ logo.addEventListener('click', grow);
 const navigation = document.querySelector('.main-navigation');
 navigation.addEventListener('click', () => {
     navigation.style.background = 'purple';
-})
+});
 
 //paragraphs -mouseenter
 document.querySelectorAll('div p').forEach(el => {
@@ -71,7 +71,7 @@ window.addEventListener('load', () => {
 
 //window -resize
 window.addEventListener('resize', () => {
-    logoColor.style.transform = 'scale(2)';
+    logo.style.transform = 'scale(2)';
 });
 
 //window -mousedown
@@ -89,3 +89,24 @@ window.addEventListener('keypress', () => {
     body.style.background = '#ff6347'
 });
 
+//greensock
+
+document.querySelector('.img-content img').addEventListener('mouseenter', () => {
+    gsap.to('.img-content img', {
+        duration: 2,
+        rotateY: 360,
+        ease: 'elastic(1, 0.75)',
+        yoyo: true,
+        repeat: 1,
+    })
+})
+
+document.querySelector('h2').addEventListener('mouseenter', () => {
+    gsap.to('.img-content img', {
+        duration: 2,
+        rotateY: 360,
+        ease: 'elastic(1, 0.75)',
+        yoyo: true,
+        repeat: 1,
+    })
+})
