@@ -25,7 +25,8 @@ document.querySelectorAll('.nav-link').forEach(el => {
 
 //header image -dbl click
 let changeImg = document.querySelector('#bus');
-changeImg.addEventListener('dblclick', () => {
+changeImg.addEventListener('dblclick', (e) => {
+    e.stopPropagation();
     changeImg.src = 'img/bus2.jpg';
 });
 
@@ -42,6 +43,7 @@ logo.addEventListener('click', grow);
 const navigation = document.querySelector('.main-navigation');
 navigation.addEventListener('click', () => {
     navigation.style.background = 'purple';
+    navigation.style.zIndex = 1;
 });
 
 //paragraphs -mouseenter
@@ -93,20 +95,18 @@ window.addEventListener('keypress', () => {
 
 document.querySelector('.img-content img').addEventListener('mouseenter', () => {
     gsap.to('.img-content img', {
-        duration: 2,
-        rotateY: 360,
-        ease: 'elastic(1, 0.75)',
-        yoyo: true,
-        repeat: 1,
+        duration: 3,
+        rotate: 360,
+        // ease: 'bounce(1, 1)',
+        // yoyo: true,
+        // repeat: 2,
     })
 })
 
-document.querySelector('h2').addEventListener('mouseenter', () => {
-    gsap.to('.img-content img', {
-        duration: 2,
-        rotateY: 360,
-        ease: 'elastic(1, 0.75)',
-        yoyo: true,
-        repeat: 1,
-    })
-})
+document.querySelector('body').addEventListener('dblclick', () => {
+    gsap.to('body', {
+        duration: 5,
+        opacity: 0,
+        y: 50
+    });
+});
